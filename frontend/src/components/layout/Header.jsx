@@ -44,18 +44,18 @@ export function Header() {
           : "bg-[#F7F7F5]/70 backdrop-blur-sm border-b border-transparent"
       }`}
     >
-      <div className="container-page h-16 sm:h-20 lg:h-20 flex items-center justify-between gap-4">
+      <div className="container-page h-16 sm:h-18 lg:h-20 flex items-center justify-between gap-3 lg:gap-4">
         <Link to="/" className="shrink-0 flex items-center" data-testid="site-logo-link" aria-label={brand}>
           <Logo variant="dark" height="h-9 sm:h-10 lg:h-11" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Основна навігація">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 min-w-0" aria-label="Основна навігація">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `px-3 py-2 rounded-[12px] text-sm font-medium transition-colors ${
+                `px-2.5 xl:px-3 py-2 rounded-[12px] text-[13px] xl:text-sm font-medium whitespace-nowrap transition-colors ${
                   isActive && item.to !== "/#categories"
                     ? "text-[#111111] bg-white border border-[#E7E7E7]"
                     : "text-[#666666] hover:text-[#111111] hover:bg-white/60"
@@ -67,11 +67,11 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
           {settings?.phone ? (
             <a
               href={telUrl(settings)}
-              className="inline-flex items-center gap-2 px-3 h-11 rounded-[14px] text-sm text-[#111111] hover:bg-white border border-transparent hover:border-[#E7E7E7] transition-colors"
+              className="hidden xl:inline-flex items-center gap-2 px-3 h-11 rounded-[14px] text-sm text-[#111111] hover:bg-white border border-transparent hover:border-[#E7E7E7] transition-colors whitespace-nowrap"
               data-testid="header-phone-link"
             >
               <Phone className="h-4 w-4" /> {settings.phone}
@@ -81,10 +81,12 @@ export function Header() {
             href={telegramUrl(settings)}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-5 h-11 rounded-[14px] text-sm font-medium bg-[#111111] text-white hover:bg-[#2A2A2A] transition-colors"
+            className="inline-flex items-center gap-2 px-4 xl:px-5 h-11 rounded-[14px] text-[13px] xl:text-sm font-medium bg-[#111111] text-white hover:bg-[#2A2A2A] transition-colors whitespace-nowrap"
             data-testid="header-cta-write-button"
           >
-            Отримати підбір <ArrowRight className="h-4 w-4" />
+            <span className="hidden xl:inline">Отримати підбір</span>
+            <span className="xl:hidden">Підбір</span>
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
 

@@ -55,7 +55,7 @@ export default function Hero() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid lg:grid-cols-[1.15fr_1fr] gap-8 sm:gap-10 lg:gap-14 items-start"
+          className="grid xl:grid-cols-[1.15fr_1fr] gap-8 sm:gap-10 xl:gap-14 items-start"
         >
           {/* LEFT: Copy */}
           <div className="min-w-0">
@@ -79,7 +79,7 @@ export default function Hero() {
 
             <motion.h1
               variants={item}
-              className="display-heading hero-heading-shadow text-[34px] leading-[1.02] sm:text-[50px] lg:text-[62px] xl:text-[76px] xl:leading-[0.98] mt-5 sm:mt-7 [hyphens:none] break-words"
+              className="display-heading hero-heading-shadow text-[30px] leading-[1.05] sm:text-[42px] md:text-[52px] lg:text-[58px] xl:text-[64px] 2xl:text-[78px] xl:leading-[0.98] mt-5 sm:mt-7 [text-wrap:balance] [overflow-wrap:normal] [word-break:keep-all] [hyphens:none]"
               data-testid="hero-title"
             >
               Підсилена <span className="text-[#5C5C5C]">пневмопідвіска</span>
@@ -197,7 +197,7 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="relative order-first lg:order-last"
           >
-            <div className="relative rounded-[22px] sm:rounded-[28px] overflow-hidden bg-[#111111] border border-[#E7E7E7] aspect-[4/3] sm:aspect-[4/5] lg:aspect-[5/6]">
+            <div className="relative rounded-[22px] sm:rounded-[28px] overflow-hidden bg-[#111111] border border-[#E7E7E7] aspect-[4/3] sm:aspect-[16/10] md:aspect-[3/2] xl:aspect-[5/6]">
               <img
                 src={imageUrl("/api/photos/IMG_7339.JPG")}
                 alt="Пневмоподушка власного виробництва — крупним планом"
@@ -220,7 +220,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-5 -left-3 sm:-left-6 lg:-left-10 w-[78%] sm:w-[62%] rounded-[18px] sm:rounded-[22px] bg-white border border-[#E7E7E7] p-3 sm:p-5 shadow-[0_20px_50px_rgba(17,17,17,0.12)] hidden sm:block"
+              className="absolute -bottom-5 -left-3 sm:-left-6 lg:-left-10 w-[78%] sm:w-[62%] rounded-[18px] sm:rounded-[22px] bg-white border border-[#E7E7E7] p-3 sm:p-5 shadow-[0_20px_50px_rgba(17,17,17,0.12)] hidden xl:block"
             >
               <div className="flex items-center gap-3">
                 <div className="h-12 w-12 sm:h-14 sm:w-14 shrink-0 rounded-[12px] sm:rounded-[14px] bg-[#F1F1EF] grid place-items-center overflow-hidden">
@@ -258,7 +258,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-4 -right-2 sm:-right-5 rounded-[16px] sm:rounded-[20px] bg-[#111111] text-white px-4 sm:px-5 py-3 sm:py-4 shadow-[0_20px_50px_rgba(17,17,17,0.3)] hidden sm:block"
+              className="absolute -bottom-4 -right-2 sm:-right-5 rounded-[16px] sm:rounded-[20px] bg-[#111111] text-white px-4 sm:px-5 py-3 sm:py-4 shadow-[0_20px_50px_rgba(17,17,17,0.3)] hidden xl:block"
             >
               <div className="text-[10px] uppercase tracking-[0.12em] text-[#A1A1A1] font-semibold">Гарантія</div>
               <div className="font-heading font-semibold text-xl sm:text-2xl tracking-tight leading-none mt-1">до 24 міс</div>
