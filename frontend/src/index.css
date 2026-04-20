@@ -97,6 +97,11 @@ html { overflow-x: hidden; }
     .section-y { @apply py-12 sm:py-16 lg:py-24; }
     .section-y-sm { @apply py-10 sm:py-12 lg:py-16; }
 
+    /* Panel section (presentation site feel on desktop) */
+    .panel-lg {
+        @apply lg:min-h-[92vh] lg:flex lg:flex-col lg:justify-center;
+    }
+
     /* Safe-area utility (iOS notch/home indicator) */
     .safe-bottom { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); }
     .safe-bottom-lg { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); }

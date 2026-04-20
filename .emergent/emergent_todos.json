@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Phase 1: New Production-first Hero (manufacturer angle, not product)",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 2: Section-based layout (min-h-screen on desktop, scroll-snap proximity)",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 3: Right-side vertical section nav (01-10, active state, hover labels)",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 4: Reorder HomePage sections per new spec",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 5: Transform FinalCTA into contact-footer screen (replaces regular Footer)",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 6: Test all viewports + take screenshots for verification",
+    "status": "completed"
+  }
+]
