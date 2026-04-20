@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================
+   MONOCHROME INDUSTRIAL PREMIUM DESIGN SYSTEM
+   Specialized: Air Suspension / Air Springs (пневмоподушки)
+============================================================= */
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+    margin: 0;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #111111;
+    background: #F7F7F5;
+    font-feature-settings: 'ss01', 'cv11';
+}
+
+.font-heading { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.015em; }
+
+@layer base {
+    :root {
+        /* Brand tokens */
+        --brand-bg: #F7F7F5;
+        --brand-surface: #FFFFFF;
+        --brand-surface-muted: #F1F1EF;
+        --brand-text: #111111;
+        --brand-text-secondary: #666666;
+        --brand-border: #E7E7E7;
+        --brand-graphite: #1A1A1A;
+
+        /* shadcn compat (mono-friendly) */
+        --background: 60 11% 97%;           /* #F7F7F5 */
+        --foreground: 0 0% 7%;               /* #111 */
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 7%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 7%;
+        --primary: 0 0% 7%;                  /* black CTA */
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 95%;
+        --secondary-foreground: 0 0% 7%;
+        --muted: 0 0% 95%;
+        --muted-foreground: 0 0% 40%;
+        --accent: 0 0% 95%;
+        --accent-foreground: 0 0% 7%;
+        --destructive: 0 0% 7%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 0 0% 91%;                  /* #E7E7E7 */
+        --input: 0 0% 91%;
+        --ring: 0 0% 7%;
+        --radius: 1rem;
+    }
+}
+
+@layer base {
+    * { @apply border-border; }
+    body { @apply bg-background text-foreground; }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+        letter-spacing: -0.02em;
+        color: #111111;
+    }
+
+    ::selection { background: #111111; color: #FFFFFF; }
+
+    html { scroll-behavior: smooth; }
+
+    :focus-visible {
+        outline: 2px solid #111111;
+        outline-offset: 2px;
+        border-radius: 10px;
+    }
+}
+
+@layer components {
+    .container-page { @apply mx-auto max-w-6xl 2xl:max-w-7xl px-4 sm:px-6 lg:px-8; }
+    .section-y { @apply py-16 sm:py-20 lg:py-28; }
+    .section-y-sm { @apply py-10 sm:py-14 lg:py-20; }
+
+    .surface-card {
+        background: #FFFFFF;
+        border: 1px solid #E7E7E7;
+        border-radius: 24px;
+        box-shadow: 0 1px 2px rgba(17,17,17,0.03), 0 8px 24px rgba(17,17,17,0.04);
+    }
+    .surface-muted {
+        background: #F1F1EF;
+        border: 1px solid #E7E7E7;
+        border-radius: 24px;
+    }
+    .surface-dark {
+        background: #111111;
+        color: #FFFFFF;
+        border-radius: 28px;
+    }
+
+    .btn-radius-16 { border-radius: 16px; }
+
+    /* Monochrome primary CTA */
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[16px] text-base font-medium;
+        background: #111111; color: #FFFFFF;
+        transition: background-color 200ms ease, transform 200ms ease;
+    }
+    .btn-primary:hover { background: #2A2A2A; }
+    .btn-primary:active { transform: translateY(1px); }
+
+    /* Secondary - outline on white */
+    .btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[16px] text-base font-medium;
+        background: #FFFFFF; color: #111111; border: 1px solid #E7E7E7;
+        transition: background-color 200ms ease, border-color 200ms ease;
+    }
+    .btn-secondary:hover { background: #F1F1EF; border-color: #DADADA; }
+
+    /* Ghost on light */
+    .btn-ghost {
+        @apply inline-flex items-center justify-center gap-2 h-12 px-5 rounded-[16px] text-sm font-medium;
+        background: transparent; color: #111111;
+        transition: background-color 200ms ease;
+    }
+    .btn-ghost:hover { background: #F1F1EF; }
+
+    .soft-lift {
+        transition: box-shadow 250ms ease, transform 250ms ease, border-color 250ms ease;
+    }
+    .soft-lift:hover {
+        transform: translateY(-2px);
+        border-color: #D8D8D6;
+        box-shadow: 0 2px 4px rgba(17,17,17,0.04), 0 16px 40px rgba(17,17,17,0.07);
+    }
+
+    /* Eyebrow tag - monochrome */
+    .eyebrow {
+        @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold tracking-[0.08em] uppercase;
+        background: #FFFFFF; color: #111111; border: 1px solid #E7E7E7;
+    }
+    .eyebrow-dark {
+        @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold tracking-[0.08em] uppercase;
+        background: #111111; color: #FFFFFF;
+    }
+
+    /* Display heading class - editorial premium */
+    .display-heading {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 0.98;
+        color: #111111;
+    }
+
+    /* Hairline divider */
+    .hairline { height: 1px; background: #E7E7E7; }
+
+    /* Mono photo treatment - subtle desaturation, cool neutral */
+    .img-neutral {
+        filter: saturate(0.95) contrast(1.05);
+    }
+    .img-mono {
+        filter: grayscale(1) contrast(1.05);
+    }
+
+    /* Hero-specific: warmer gradient, not flat gray */
+    .hero-bg {
+        background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F3 55%, #F1F1EF 100%);
+    }
+    .hero-heading-shadow { text-shadow: 0 1px 2px rgba(17,17,17,0.04); }
+
+    /* Primary CTA pill (hero/cards) - slightly elevated */
+    .cta-lift {
+        box-shadow: 0 10px 30px rgba(17,17,17,0.22), 0 2px 4px rgba(17,17,17,0.08);
+        transition: transform 220ms cubic-bezier(0.22,1,0.36,1), box-shadow 220ms ease, background-color 200ms ease;
+    }
+    .cta-lift:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 40px rgba(17,17,17,0.28), 0 4px 8px rgba(17,17,17,0.1);
+    }
+}
+
+/* Scrollbar - muted mono */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #F7F7F5; }
+::-webkit-scrollbar-thumb { background: #D8D8D6; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #B8B8B6; }
+
+@layer base {
+    [data-debug-wrapper="true"] { display: contents !important; }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+        padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+        column-gap: inherit; row-gap: inherit; gap: inherit;
+        border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
+        border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
+        border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
+    }
+}
+
+/* Grain / noise option for hero (very subtle) */
+.bg-grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(17,17,17,0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.35;
+    pointer-events: none;
+}
