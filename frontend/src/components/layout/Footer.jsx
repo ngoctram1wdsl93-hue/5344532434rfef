@@ -14,7 +14,7 @@ export function Footer() {
       <div className="container-page py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="lg:col-span-1">
           <Link to="/" className="inline-flex items-center mb-5" aria-label={brand}>
-            <Logo variant="light" height="h-20 sm:h-24" />
+            <Logo variant="light" height="h-11 sm:h-12" />
           </Link>
           <p className="text-sm text-[#A1A1A1] leading-relaxed max-w-xs">
             {settings?.tagline || "Пневмоподушки та комплекти пневмопідвіски для комерційного транспорту."}

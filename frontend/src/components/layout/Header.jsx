@@ -44,9 +44,9 @@ export function Header() {
           : "bg-[#F7F7F5]/70 backdrop-blur-sm border-b border-transparent"
       }`}
     >
-      <div className="container-page h-24 sm:h-28 lg:h-32 flex items-center justify-between gap-4">
-        <Link to="/" className="shrink-0 flex items-center -my-2" data-testid="site-logo-link" aria-label={brand}>
-          <Logo variant="dark" height="h-16 sm:h-20 lg:h-24" />
+      <div className="container-page h-16 sm:h-20 lg:h-20 flex items-center justify-between gap-4">
+        <Link to="/" className="shrink-0 flex items-center" data-testid="site-logo-link" aria-label={brand}>
+          <Logo variant="dark" height="h-9 sm:h-10 lg:h-11" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Основна навігація">
