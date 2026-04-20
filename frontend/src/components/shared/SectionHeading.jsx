@@ -10,11 +10,11 @@ export function SectionHeading({ eyebrow, title, subtitle, align = "left", class
           {eyebrow}
         </div>
       ) : null}
-      <h2 className={`font-heading font-semibold text-3xl sm:text-4xl lg:text-[42px] mt-4 leading-[1.05] tracking-tight ${titleColor}`}>
+      <h2 className={`font-heading font-semibold text-[26px] sm:text-3xl lg:text-[42px] mt-3 sm:mt-4 leading-[1.08] sm:leading-[1.05] tracking-tight ${titleColor}`}>
         {title}
       </h2>
       {subtitle ? (
-        <p className={`mt-4 text-base sm:text-lg leading-relaxed ${subtitleColor}`}>{subtitle}</p>
+        <p className={`mt-3 sm:mt-4 text-[14.5px] sm:text-base lg:text-lg leading-relaxed ${subtitleColor}`}>{subtitle}</p>
       ) : null}
       {actions ? <div className="mt-6">{actions}</div> : null}
     </div>

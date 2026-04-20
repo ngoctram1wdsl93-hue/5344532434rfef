@@ -3,7 +3,6 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import { api } from "@/lib/api";
 import { imageUrl } from "@/lib/utils";
 
-// Caption → case-label mapping. Each image gets a category badge that reads as proof.
 function classify(item) {
   const tag = (item.tag || "").toLowerCase();
   const cap = (item.caption || "").toLowerCase();
@@ -68,14 +67,14 @@ export default function Gallery() {
           title="Робота, яка говорить сама за себе"
           subtitle="Від пневмоподушки на верстаті — до встановленого комплекту на авто клієнта. Усе — власного виробництва."
         />
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 auto-rows-[180px] sm:auto-rows-[240px] gap-3 sm:gap-4">
+        <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[140px] sm:auto-rows-[200px] lg:auto-rows-[240px] gap-2.5 sm:gap-3 lg:gap-4">
           {enriched.map((img, i) => {
             const isTall = img.tall || TALL_INDICES.has(i);
             const toneClass = TONE_CLASS[img._case.tone] || TONE_CLASS.dark;
             return (
               <div
                 key={img.id || img.image || i}
-                className={`relative rounded-[20px] overflow-hidden border border-[#E7E7E7] bg-white group ${
+                className={`relative rounded-[16px] sm:rounded-[20px] overflow-hidden border border-[#E7E7E7] bg-white group ${
                   isTall ? "row-span-2" : ""
                 }`}
                 data-testid="gallery-tile"
@@ -86,13 +85,11 @@ export default function Gallery() {
                   className="w-full h-full object-cover img-neutral transition-transform duration-700 group-hover:scale-[1.06]"
                   loading="lazy"
                 />
-                {/* Top-left case badge */}
-                <span className={`absolute top-3 left-3 inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] ${toneClass}`}>
+                <span className={`absolute top-2 sm:top-3 left-2 sm:left-3 inline-flex items-center rounded-full px-2 sm:px-2.5 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.08em] ${toneClass}`}>
                   {img._case.label}
                 </span>
-                {/* Bottom caption strip */}
-                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/70 via-black/15 to-transparent">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-[#111111] max-w-full">
+                <div className="absolute inset-x-0 bottom-0 p-2 sm:p-3 bg-gradient-to-t from-black/70 via-black/15 to-transparent">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-semibold text-[#111111] max-w-full">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#111111] shrink-0" />
                     <span className="truncate">{img.caption}</span>
                   </span>

@@ -6,9 +6,9 @@ import StickyMobileCTA from "@/components/layout/StickyMobileCTA";
 
 export default function PublicLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F7F5]">
+    <div className="min-h-screen flex flex-col bg-[#F7F7F5] overflow-x-hidden">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 min-w-0">
         <Outlet />
       </main>
       <Footer />

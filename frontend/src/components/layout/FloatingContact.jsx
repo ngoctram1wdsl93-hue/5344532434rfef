@@ -1,15 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Send, MessageCircle, Phone, X, MessageSquare } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSettings } from "@/lib/settings-context";
 import { telegramUrl, whatsappUrl, telUrl } from "@/lib/cta";
 
+/**
+ * Floating contact bubble. On mobile, auto-lifts above StickyMobileCTA
+ * when it becomes visible (scrollY > 500). iOS safe-area-inset aware.
+ */
 export function FloatingContact() {
   const [open, setOpen] = useState(false);
+  const [stickyVisible, setStickyVisible] = useState(false);
   const { settings } = useSettings();
+  const location = useLocation();
+
+  const isProductDetail = /^\/catalog\/[^/]+$/.test(location.pathname);
+  const isAdmin = location.pathname.startsWith("/admin");
+
+  useEffect(() => {
+    if (isAdmin || isProductDetail) {
+      setStickyVisible(false);
+      return;
+    }
+    const onScroll = () => setStickyVisible(window.scrollY > 500);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isAdmin, isProductDetail, location.pathname]);
+
+  // On mobile, lift floating button above sticky-mobile-cta when visible
+  const mobileBottom = stickyVisible ? "bottom-[96px]" : "bottom-5";
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3" data-testid="floating-contact-root">
+    <div
+      className={`fixed right-4 sm:right-5 ${mobileBottom} sm:bottom-5 z-50 flex flex-col items-end gap-3 transition-[bottom] duration-300`}
+      style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
+      data-testid="floating-contact-root"
+    >
       <AnimatePresence>
         {open ? (
           <motion.div
@@ -58,10 +86,10 @@ export function FloatingContact() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Закрити контакти" : "Відкрити контакти"}
-        className="h-14 w-14 rounded-full bg-[#111111] text-white grid place-items-center shadow-[0_12px_30px_rgba(17,17,17,0.25)] hover:bg-[#2A2A2A] transition-colors"
+        className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-[#111111] text-white grid place-items-center shadow-[0_12px_30px_rgba(17,17,17,0.25)] hover:bg-[#2A2A2A] transition-colors"
         data-testid="floating-contact-toggle"
       >
-        {open ? <X className="h-6 w-6" /> : <MessageSquare className="h-6 w-6" />}
+        {open ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6" />}
       </button>
     </div>
   );

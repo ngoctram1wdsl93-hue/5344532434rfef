@@ -34,10 +34,10 @@ export default function FeaturedProducts() {
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6" data-testid="featured-products-grid">
           {loading
             ? Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="surface-card h-[460px] animate-pulse" />
+                <div key={i} className="surface-card h-[400px] sm:h-[460px] animate-pulse" />
               ))
             : items.map((p) => <ProductCard key={p.slug} product={p} />)}
         </div>

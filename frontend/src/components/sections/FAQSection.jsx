@@ -20,19 +20,19 @@ export default function FAQSection({ heading = true }) {
             subtitle="Відповідаємо на те, що питають найчастіше. Не знайшли відповіді — напишіть нам."
           />
         ) : null}
-        <div className="mt-10 max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="flex flex-col gap-3" data-testid="faq-accordion">
+        <div className="mt-8 sm:mt-10 max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="flex flex-col gap-2.5 sm:gap-3" data-testid="faq-accordion">
             {items.map((q) => (
               <AccordionItem
                 key={q.id}
                 value={q.id}
-                className="surface-card px-6 border"
+                className="surface-card px-4 sm:px-6 border"
                 data-testid={`faq-item-${q.order}`}
               >
-                <AccordionTrigger className="py-6 text-left font-heading font-medium text-[#111111] hover:no-underline text-[16px] tracking-tight">
-                  {q.question}
+                <AccordionTrigger className="py-4 sm:py-6 text-left font-heading font-medium text-[#111111] hover:no-underline text-[15px] sm:text-[16px] leading-snug tracking-tight min-h-[48px]">
+                  <span className="pr-2 min-w-0">{q.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-[#666666] pb-6 leading-relaxed">
+                <AccordionContent className="text-[#666666] pb-4 sm:pb-6 leading-relaxed text-[14px] sm:text-[15px]">
                   {q.answer}
                 </AccordionContent>
               </AccordionItem>

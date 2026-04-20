@@ -7,6 +7,7 @@ import { telegramUrl } from "@/lib/cta";
 /**
  * Mobile-only sticky CTA that appears after user scrolls past hero.
  * Hidden on product-detail page (which already has its own bottom bar).
+ * iOS safe-area-inset-bottom aware.
  */
 export default function StickyMobileCTA() {
   const { settings } = useSettings();
@@ -30,7 +31,7 @@ export default function StickyMobileCTA() {
 
   return (
     <div
-      className={`lg:hidden fixed bottom-0 inset-x-0 z-40 transition-transform duration-300 ${
+      className={`lg:hidden fixed bottom-0 inset-x-0 z-40 transition-transform duration-300 pb-[env(safe-area-inset-bottom)] ${
         show ? "translate-y-0" : "translate-y-full"
       }`}
       data-testid="mobile-sticky-cta"
@@ -41,11 +42,11 @@ export default function StickyMobileCTA() {
           href={telegramUrl(settings)}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between gap-3 px-5 h-[62px]"
+          className="flex items-center justify-between gap-3 px-4 sm:px-5 h-[60px]"
           data-testid="mobile-sticky-cta-link"
         >
-          <div className="flex flex-col min-w-0">
-            <span className="text-[15px] font-semibold tracking-tight truncate">Підібрати під авто</span>
+          <div className="flex flex-col min-w-0 flex-1">
+            <span className="text-[14px] sm:text-[15px] font-semibold tracking-tight truncate">Підібрати під авто</span>
             <span className="text-[11px] text-[#A0A0A0] truncate">Відповідаємо за ~15 хв · безкоштовно</span>
           </div>
           <span className="h-10 w-10 rounded-full bg-white text-[#111111] grid place-items-center shrink-0">

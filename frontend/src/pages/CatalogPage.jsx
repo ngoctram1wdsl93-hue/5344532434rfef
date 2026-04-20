@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search, X, Filter } from "lucide-react";
+import { Search, X, Filter, ChevronDown } from "lucide-react";
 import { api } from "@/lib/api";
 import ProductCard from "@/components/shared/ProductCard";
 import SectionHeading from "@/components/shared/SectionHeading";
@@ -22,6 +22,7 @@ export default function CatalogPage() {
 
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -60,9 +61,27 @@ export default function CatalogPage() {
         subtitle="Пневмоподушки, комплекти пневмопідвіски, компоненти та індивідуальні рішення."
       />
 
-      <div className="mt-10 grid lg:grid-cols-[300px_1fr] gap-6">
+      <div className="mt-6 sm:mt-10 grid lg:grid-cols-[300px_1fr] gap-4 sm:gap-6">
+        {/* Mobile filter toggle */}
+        <button
+          type="button"
+          onClick={() => setFiltersOpen((v) => !v)}
+          className="lg:hidden inline-flex items-center justify-between gap-2 h-12 px-4 rounded-[14px] border border-[#E7E7E7] bg-white text-[#111111] text-sm font-medium"
+          data-testid="catalog-filters-toggle"
+        >
+          <span className="inline-flex items-center gap-2">
+            <Filter className="h-4 w-4" /> Фільтри
+            {(category !== "all" || statusF !== "all" || q) ? (
+              <span className="ml-1 inline-flex items-center justify-center h-5 min-w-5 px-1.5 rounded-full bg-[#111111] text-white text-[11px] font-bold">
+                {[category !== "all", statusF !== "all", !!q].filter(Boolean).length}
+              </span>
+            ) : null}
+          </span>
+          <ChevronDown className={`h-4 w-4 transition-transform ${filtersOpen ? "rotate-180" : ""}`} />
+        </button>
+
         {/* Filters */}
-        <aside className="surface-card p-6 h-max lg:sticky lg:top-24" data-testid="catalog-filters">
+        <aside className={`surface-card p-5 sm:p-6 h-max lg:sticky lg:top-24 ${filtersOpen ? "block" : "hidden"} lg:block`} data-testid="catalog-filters">
           <div className="flex items-center gap-2 text-[#111111] font-heading font-semibold tracking-tight">
             <Filter className="h-4 w-4" /> Фільтри
           </div>

@@ -52,7 +52,7 @@ export default function UseCases() {
           subtitle="Sprinter, Crafter, Transit, вантажні авто, причепи, спецтехніка — підбираємо робочий комплект під вашу задачу."
         />
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {CASES.map((c) => (
             <Link
               to={c.link}
@@ -62,10 +62,10 @@ export default function UseCases() {
               <div className="aspect-[16/10] overflow-hidden bg-[#F1F1EF]">
                 <img src={imageUrl(c.img)} alt={c.title} className="w-full h-full object-cover img-neutral transition-transform duration-700 group-hover:scale-[1.06]" loading="lazy" />
               </div>
-              <div className="p-5 flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="font-heading font-semibold text-[17px] text-[#111111] tracking-tight">{c.title}</h3>
-                  <p className="mt-1 text-sm text-[#666666]">{c.desc}</p>
+              <div className="p-4 sm:p-5 flex items-start justify-between gap-3 sm:gap-4">
+                <div className="min-w-0">
+                  <h3 className="font-heading font-semibold text-[16px] sm:text-[17px] text-[#111111] tracking-tight">{c.title}</h3>
+                  <p className="mt-1 text-[13px] sm:text-sm text-[#666666]">{c.desc}</p>
                 </div>
                 <span className="h-9 w-9 shrink-0 rounded-full bg-[#F1F1EF] grid place-items-center text-[#111111] group-hover:bg-[#111111] group-hover:text-white transition-colors">
                   <ArrowUpRight className="h-4 w-4" />

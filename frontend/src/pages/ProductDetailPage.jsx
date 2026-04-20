@@ -67,7 +67,7 @@ export default function ProductDetailPage() {
   );
 
   return (
-    <div className="container-page section-y" data-testid="product-detail-page">
+    <div className="container-page section-y pb-24 lg:pb-24" data-testid="product-detail-page">
       <div className="flex items-center gap-1.5 text-sm text-[#666666]">
         <Link to="/" className="hover:text-[#111111]">Головна</Link>
         <span>·</span>
@@ -78,21 +78,22 @@ export default function ProductDetailPage() {
         </Link>
       </div>
 
-      <div className="mt-6 grid lg:grid-cols-[1fr_400px] gap-10">
+      <div className="mt-5 sm:mt-6 grid lg:grid-cols-[1fr_400px] gap-6 sm:gap-10">
         <div>
-          <div className="surface-card overflow-hidden p-4">
-            <div className="rounded-[20px] bg-[#F1F1EF] overflow-hidden aspect-[4/3]">
+          <div className="surface-card overflow-hidden p-3 sm:p-4">
+            <div className="rounded-[16px] sm:rounded-[20px] bg-[#F1F1EF] overflow-hidden aspect-[4/3]">
               <img src={imageUrl(mainImage || product.image)} alt={product.title} className="w-full h-full object-cover img-neutral" />
             </div>
             {gallery.length > 1 ? (
-              <div className="mt-3 grid grid-cols-5 sm:grid-cols-6 gap-2">
+              <div className="mt-2.5 sm:mt-3 grid grid-cols-5 sm:grid-cols-6 gap-1.5 sm:gap-2">
                 {gallery.map((g, i) => (
                   <button
                     key={i}
                     onClick={() => setMainImage(g)}
-                    className={`rounded-[12px] overflow-hidden aspect-square border-2 transition-colors ${
+                    className={`rounded-[10px] sm:rounded-[12px] overflow-hidden aspect-square border-2 transition-colors ${
                       (mainImage || product.image) === g ? "border-[#111111]" : "border-transparent hover:border-[#E7E7E7]"
                     }`}
+                    aria-label={`Зображення ${i + 1}`}
                   >
                     <img src={imageUrl(g)} alt="" className="w-full h-full object-cover img-neutral" />
                   </button>
@@ -101,22 +102,22 @@ export default function ProductDetailPage() {
             ) : null}
           </div>
 
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] rounded-full bg-[#F1F1EF] border border-[#E7E7E7] px-3 py-1 text-[#111111] inline-flex items-center gap-1.5">
+              <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.1em] rounded-full bg-[#F1F1EF] border border-[#E7E7E7] px-2.5 sm:px-3 py-1 text-[#111111] inline-flex items-center gap-1.5">
                 <Tag className="h-3 w-3" /> {CATEGORY_LABELS[product.category]}
               </span>
               {product.badge ? (
-                <span className="text-[11px] rounded-full bg-[#111111] text-white px-3 py-1 font-semibold uppercase tracking-[0.08em]">
+                <span className="text-[10px] sm:text-[11px] rounded-full bg-[#111111] text-white px-2.5 sm:px-3 py-1 font-semibold uppercase tracking-[0.08em]">
                   {product.badge}
                 </span>
               ) : null}
               <StatusBadge status={product.status} />
             </div>
-            <h1 className="font-heading font-semibold text-[#111111] text-3xl sm:text-4xl lg:text-[44px] leading-[1.05] tracking-tight" data-testid="product-detail-title">
+            <h1 className="font-heading font-semibold text-[#111111] text-[26px] sm:text-4xl lg:text-[44px] leading-[1.08] sm:leading-[1.05] tracking-tight" data-testid="product-detail-title">
               {product.title}
             </h1>
-            <p className="mt-4 text-[#666666] text-base sm:text-lg leading-relaxed">{product.shortDescription}</p>
+            <p className="mt-3 sm:mt-4 text-[#666666] text-[15px] sm:text-base lg:text-lg leading-relaxed">{product.shortDescription}</p>
 
             {product.fullDescription ? (
               <div className="mt-8 surface-card p-6 sm:p-7">
@@ -214,7 +215,7 @@ export default function ProductDetailPage() {
       </div>
 
       {/* Mobile sticky bottom bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E7E7E7] p-3 flex gap-2" data-testid="product-mobile-bottom-cta">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E7E7E7] p-3 pb-[calc(env(safe-area-inset-bottom,0px)+12px)] flex gap-2" data-testid="product-mobile-bottom-cta">
         <a
           href={telegramUrl(settings, product.title)}
           target="_blank"

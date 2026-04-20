@@ -29,10 +29,10 @@ export default function Categories() {
             Весь каталог <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {loading
             ? Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="surface-card h-80 animate-pulse" />
+                <div key={i} className="surface-card h-72 sm:h-80 animate-pulse" />
               ))
             : items.map((cat, i) => <CategoryCard key={cat.slug} category={cat} />)}
         </div>

@@ -44,19 +44,19 @@ export default function WhyChooseUs() {
           subtitle="Ми не просто продаємо — підбираємо рішення під навантаження, авто та реальні умови роботи."
         />
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {ITEMS.map((item, i) => (
-            <div key={item.title} className="surface-card p-7 soft-lift relative">
-              <div className="absolute top-6 right-6 font-heading text-[12px] font-semibold text-[#B8B8B6] tracking-[0.1em]">
+            <div key={item.title} className="surface-card p-5 sm:p-7 soft-lift relative">
+              <div className="absolute top-5 right-5 sm:top-6 sm:right-6 font-heading text-[11px] sm:text-[12px] font-semibold text-[#B8B8B6] tracking-[0.1em]">
                 0{i + 1}
               </div>
-              <div className="h-12 w-12 rounded-[14px] bg-[#111111] text-white grid place-items-center">
+              <div className="h-11 w-11 sm:h-12 sm:w-12 rounded-[12px] sm:rounded-[14px] bg-[#111111] text-white grid place-items-center">
                 <item.icon className="h-5 w-5" strokeWidth={1.75} />
               </div>
-              <h3 className="mt-5 font-heading font-semibold text-[19px] text-[#111111] leading-snug tracking-tight">
+              <h3 className="mt-4 sm:mt-5 font-heading font-semibold text-[17px] sm:text-[19px] text-[#111111] leading-snug tracking-tight">
                 {item.title}
               </h3>
-              <p className="mt-2.5 text-sm text-[#555555] leading-relaxed">{item.desc}</p>
+              <p className="mt-2 sm:mt-2.5 text-[13.5px] sm:text-sm text-[#555555] leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>

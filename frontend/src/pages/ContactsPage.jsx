@@ -37,21 +37,21 @@ export default function ContactsPage() {
         subtitle="Відповідаємо протягом години в робочий час."
       />
 
-      <div className="mt-12 grid lg:grid-cols-2 gap-10">
-        <div className="space-y-4">
+      <div className="mt-8 sm:mt-12 grid lg:grid-cols-2 gap-6 sm:gap-10">
+        <div className="space-y-3 sm:space-y-4">
           <a
             href={telegramUrl(settings)}
             target="_blank"
             rel="noreferrer"
-            className="surface-card p-6 flex items-center gap-5 soft-lift"
+            className="surface-card p-5 sm:p-6 flex items-center gap-4 sm:gap-5 soft-lift"
             data-testid="contacts-telegram-card"
           >
-            <div className="h-14 w-14 rounded-[14px] bg-[#111111] text-white grid place-items-center shrink-0">
+            <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-[12px] sm:rounded-[14px] bg-[#111111] text-white grid place-items-center shrink-0">
               <Send className="h-5 w-5" />
             </div>
-            <div>
-              <div className="text-[11px] uppercase tracking-[0.1em] text-[#666666] font-semibold">Telegram</div>
-              <div className="font-heading font-semibold text-[#111111] text-lg tracking-tight">@{(settings?.telegram_username || "").replace(/^@/, "")}</div>
+            <div className="min-w-0">
+              <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.1em] text-[#666666] font-semibold">Telegram</div>
+              <div className="font-heading font-semibold text-[#111111] text-base sm:text-lg tracking-tight truncate">@{(settings?.telegram_username || "").replace(/^@/, "")}</div>
             </div>
           </a>
 
@@ -59,15 +59,15 @@ export default function ContactsPage() {
             href={whatsappUrl(settings)}
             target="_blank"
             rel="noreferrer"
-            className="surface-card p-6 flex items-center gap-5 soft-lift"
+            className="surface-card p-5 sm:p-6 flex items-center gap-4 sm:gap-5 soft-lift"
             data-testid="contacts-whatsapp-card"
           >
-            <div className="h-14 w-14 rounded-[14px] bg-white border border-[#E7E7E7] text-[#111111] grid place-items-center shrink-0">
+            <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-[12px] sm:rounded-[14px] bg-white border border-[#E7E7E7] text-[#111111] grid place-items-center shrink-0">
               <MessageCircle className="h-5 w-5" />
             </div>
-            <div>
-              <div className="text-[11px] uppercase tracking-[0.1em] text-[#666666] font-semibold">WhatsApp</div>
-              <div className="font-heading font-semibold text-[#111111] text-lg tracking-tight">+{(settings?.whatsapp_number || "").replace(/\D/g, "")}</div>
+            <div className="min-w-0">
+              <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.1em] text-[#666666] font-semibold">WhatsApp</div>
+              <div className="font-heading font-semibold text-[#111111] text-base sm:text-lg tracking-tight truncate">+{(settings?.whatsapp_number || "").replace(/\D/g, "")}</div>
             </div>
           </a>
 
