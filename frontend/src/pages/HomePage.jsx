@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import MiniTrust from "@/components/sections/MiniTrust";
 import PainBlock from "@/components/sections/PainBlock";
+import Testimonials from "@/components/sections/Testimonials";
 import Categories from "@/components/sections/Categories";
 import FeaturedProducts from "@/components/sections/FeaturedProducts";
 import UseCases from "@/components/sections/UseCases";
@@ -15,6 +16,7 @@ export default function HomePage() {
     <div data-testid="home-page">
       <Hero />
       <PainBlock />
+      <Testimonials />
       <MiniTrust />
       <Categories />
       <FeaturedProducts />

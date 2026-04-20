@@ -90,14 +90,18 @@ export default function Hero() {
               <br />під ваше авто
             </motion.h1>
 
-            {/* Sharper, shorter subheadline */}
+            {/* Sharper, shorter subheadline — final cut */}
             <motion.p
               variants={item}
-              className="mt-7 text-[18px] sm:text-[20px] text-[#2F2F2F] max-w-xl leading-[1.55]"
+              className="mt-7 text-[19px] sm:text-[22px] text-[#1A1A1A] max-w-xl leading-[1.4] font-medium"
             >
-              <strong className="font-semibold text-[#111111]">Не просідає під навантаженням.</strong>{" "}
-              Машину не кидає і не кренить. Підбираємо під Sprinter, Crafter, Transit та вантажні авто —
-              під вашу вагу, а не «як у всіх».
+              <strong className="font-semibold text-[#111111]">Не просідає навіть коли авто повністю завантажене.</strong>
+            </motion.p>
+            <motion.p
+              variants={item}
+              className="mt-3 text-[15px] sm:text-[16px] text-[#555555] max-w-xl leading-[1.55]"
+            >
+              Підбираємо під Sprinter, Crafter, Transit та вантажні авто — під вашу вагу, а не «як у всіх».
             </motion.p>
 
             {/* Vehicle chips with prefix */}
@@ -146,7 +150,25 @@ export default function Hero() {
             {/* Microcopy under CTA */}
             <motion.div variants={item} className="mt-4 flex items-center gap-2 text-[13px] text-[#555555]">
               <Check className="h-4 w-4 text-[#16A34A]" strokeWidth={2.2} />
-              <span>Безкоштовний підбір під ваше авто за 15 хвилин</span>
+              <span>Безкоштовний підбір за 15 хвилин</span>
+            </motion.div>
+
+            {/* 3-check row — Безкоштовно · Швидко · Без "впарювання" */}
+            <motion.div variants={item} className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] font-medium text-[#2A2A2A]">
+              <span className="inline-flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 text-[#16A34A]" strokeWidth={2.6} />
+                Безкоштовно
+              </span>
+              <span className="text-[#C7C7C7]">·</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 text-[#16A34A]" strokeWidth={2.6} />
+                Швидко
+              </span>
+              <span className="text-[#C7C7C7]">·</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 text-[#16A34A]" strokeWidth={2.6} />
+                Без «впарювання»
+              </span>
             </motion.div>
 
             <motion.div variants={item} className="mt-1.5">
